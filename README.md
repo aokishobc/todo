@@ -7,9 +7,9 @@
 
 ## 参考資料
 * EC2
- * https://qiita.com/yseki_/items/81c84d78895b009c2aa6
- * https://docs.aws.amazon.com/ja_jp/corretto/latest/corretto-11-ug/amazon-linux-install.html
+  * https://qiita.com/yseki_/items/81c84d78895b009c2aa6
+  * https://docs.aws.amazon.com/ja_jp/corretto/latest/corretto-11-ug/amazon-linux-install.html
 * MySQL
- * https://qiita.com/2no553/items/952dbb8df9a228195189
+  * https://qiita.com/2no553/items/952dbb8df9a228195189
 * port番号を非表示
- * http://rainbow-engine.com/access-website-onlydomain/
+  * http://rainbow-engine.com/access-website-onlydomain/
