@@ -3,6 +3,7 @@
 * AWSのEC2に新しいインスタンスを作成
 * ローカルでec2にsshで繋ぐ
 * buildフォルダのlibsフォルダのjarファイルをsftpでアップロードする
+* Apacheを起動する( `sudo systemctl start httpd` )
 * `java -jar todo-0.0.1-SNAPSHOT.jar`で実行
 
 ## 参考資料
