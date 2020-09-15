@@ -1,0 +1,39 @@
+spring:
+  datasource:
+#    url: jdbc:mysql://18.177.232.38:3306/todo
+    url: jdbc:mysql://localhost:3306/todo
+    username: root
+    password:
+  jpa:
+    database: MYSQL
+    hibernate:
+      ddl-auto: update
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+server:
+  port : 8081
+#spring:
+#  datasource:
+#    url: jdbc:mysql://localhost:3305/test_database
+#    username: docker
+#    password: docker
+#  jpa:
+#    database: MYSQL
+#    hibernate:
+#      ddl-auto: update
+#  mvc:
+#    hiddenmethod:
+#      filter:
+#        enabled: true
+#logging:
+#  level:
+#    org:
+#      hibernate:
+#        SQL: debug

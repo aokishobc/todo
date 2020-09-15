@@ -1,0 +1,15 @@
+.error-message{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.error-message span{
+    font-size: 50px;
+}
+
+.back-top-page{
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}

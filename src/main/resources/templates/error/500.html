@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head th:replace="layout/header :: head('500')">
+    </head>
+</head>
+<body>
+    <div th:replace="layout/header :: header"></div>
+    <div class="error-message">
+        <div>
+            <span th:text="${errorMessage}"></span>
+        </div>
+    </div>
+    <div class="back-top-page">
+        <div>
+                <span>
+                    <a th:href="@{'/'}">トップへ戻る</a>
+                </span>
+        </div>
+    </div>
+</body>
+</html>

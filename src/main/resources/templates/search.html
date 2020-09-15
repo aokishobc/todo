@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/header :: head('検索')">
+</head>
+<body>
+    <div th:replace="layout/header :: header"></div>
+    <div class="todo-form-outer">
+        <div class="todo-form">
+            <form th:action="@{'/search/result'}" th:method="get">
+                <div class="todo-form-inner">
+                    <div class="todo-form-input-outer">
+                        <div class="todo-form-input">
+                            <span>タイトル検索：</span>
+                            <input type="text" name="title">
+                        </div>
+                    </div>
+                    <div class="todo-btn">
+                        <button type="submit">検索</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div th:if="!${#lists.isEmpty(todos)}" class="todo-count">
+        <div class="todo-count-inner">
+            <div>
+                <span th:text="'Todoが' + ${#lists.size(todos)} + '件見つかりました'"></span>
+            </div>
+        </div>
+    </div>
+    <div th:each="todo : ${todos}">
+        <div class="todo-outer">
+            <div class="todo">
+                <div>
+                    <div>
+                        <span th:text="*{todo.title}"></span>
+                    </div>
+                    <div>
+                        <span th:text="'目標日：' + *{todo.deadline}"></span>
+                    </div>
+                    <div>
+                        <span th:text="'作成日：' + *{todo.create_time}"></span>
+                    </div>
+                </div>
+                <div class="todo-status-edit">
+                    <div class="todo-status">
+                        <div>
+                            <form th:action="@{'/toggle-status/' + *{todo.id}}" th:method="patch">
+                                <button class="todo-status-btn" type="submit"><i th:class="*{todo.status}?'fas fa-check fa-2x':''"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div>
+                        <a th:href="@{'/editPage/' + *{todo.id}}">
+                            <i class="fas fa-pen fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

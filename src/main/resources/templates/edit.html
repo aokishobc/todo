@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/header :: head('編集')">
+</head>
+<body>
+    <div th:replace="layout/header :: header"></div>
+    <div class="todo-form-outer">
+        <div class="todo-form">
+            <form th:action="@{'/edit/' + *{id} + '/complete'}" th:method="put" th:object="${todoForm}">
+                <div class="todo-form-inner">
+                    <div class="todo-form-input-outer">
+                        <div class="todo-form-input">
+                            <span>タイトル：</span>
+                            <input type="text" th:field="*{title}">
+                            <span th:if="${#fields.hasErrors('title')}" class="error" th:errors="*{title}"></span>
+                            <span th:text="${titleError}" class="error"></span>
+                        </div>
+                        <div class="todo-form-input">
+                            <span>期限：</span>
+                            <input type="date" th:field="*{deadline}">
+                            <span th:if="${#fields.hasErrors('deadline')}" class="error" th:errors="*{deadline}"></span>
+                            <span th:text="${DeadlineError}" class="error"></span>
+                        </div>
+                    </div>
+                    <div class="todo-btn">
+                        <button type="submit">保存</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

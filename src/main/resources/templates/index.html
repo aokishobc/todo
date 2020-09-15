@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/header :: head('トップ')">
+</head>
+<body>
+    <div th:replace="layout/header :: header"></div>
+    <div class="todo-form-outer">
+        <div class="todo-form">
+            <form th:action="@{/post}" method="post" th:object="${todoForm}">
+                <div class="todo-form-inner">
+                    <div class="todo-form-input-outer">
+                        <div class="todo-form-input">
+                            <span>タイトル：</span>
+                            <input type="text" th:field="*{title}">
+                            <span th:if="${#fields.hasErrors('title')}" class="error" th:errors="*{title}"></span>
+                            <span th:text="${titleError}" class="error"></span>
+                        </div>
+                        <div class="todo-form-input">
+                            <span>期限：</span>
+                            <input type="date" pattern="yyyy-mm-dd" th:field="*{deadline}">
+                            <span th:if="${#fields.hasErrors('deadline')}" class="error" th:errors="*{deadline}"></span>
+                            <span th:text="${DeadlineError}" class="error"></span>
+                        </div>
+                    </div>
+                    <div class="todo-btn">
+                        <button type="submit">追加</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="todo-judge" th:if="${#lists.isEmpty(todos)}">
+        <div class="todo-judge-inner">
+            <div>
+                <span class="error">登録されたToDoはございません</span>
+            </div>
+        </div>
+    </div>
+    <div th:each="todo : ${todos}">
+        <div class="todo-outer">
+            <div class="todo">
+                <div>
+                    <div>
+                        <span th:text="*{todo.title}"></span>
+                    </div>
+                    <div>
+                        <span th:text="'目標日：' + *{todo.deadline}"></span>
+                    </div>
+                    <div>
+                        <span th:text="'作成日：' + *{todo.create_time}"></span>
+                    </div>
+                </div>
+                <div class="todo-status-edit">
+                    <div class="todo-status">
+                        <div>
+                            <form th:action="@{'/toggle-status/' + *{todo.id}}" th:method="patch">
+                                <button class="todo-status-btn" type="submit"><i th:class="*{todo.status}?'fas fa-check fa-2x':''"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div>
+                        <a th:href="@{'/editPage/' + *{todo.id}}">
+                            <i class="fas fa-pen fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
