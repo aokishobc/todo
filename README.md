@@ -1,5 +1,5 @@
 # todo
-## EC2にTODOに上げた手順
+## EC2にTODOに上げた手順と起動方法
 * AWSのEC2に新しいインスタンスを作成
 * ローカルでec2にsshで繋ぐ
 * buildフォルダのlibsフォルダのjarファイルをsftpでアップロードする
