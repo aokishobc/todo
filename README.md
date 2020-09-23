@@ -13,3 +13,12 @@
   * https://qiita.com/2no553/items/952dbb8df9a228195189
 * port番号を非表示
   * http://rainbow-engine.com/access-website-onlydomain/
+
+## 試すこと
+* 継続的に動作
+  * https://qiita.com/uenosy/items/19829f0e212ac81e0044
+* Route53にドメインを付与
+  * https://qiita.com/aWdfcfG2jLr73pe/items/4a141a880351cf655de9
+* EC2でgithubをcloneする  
+* EC2とgithubをつなげる
+  * https://qiita.com/nasuB7373/items/081f5974e31419a1a844  
